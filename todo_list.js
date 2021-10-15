@@ -2,10 +2,13 @@
 function addTask(description, dueTime){
     const parentElement = document.getElementById("task_list");
     // console.log(parentElement);
-    // create due span
+    // create due spa
+
     const due = document.createElement("span");
     due.className = "due";
-    let date = new Date(dueTime);
+
+    if (dueTime){
+        let date = new Date(dueTime);
     let month = date.getMonth() + 1;
     let day = date.getDate();
     let year = date.getFullYear();
@@ -18,6 +21,9 @@ function addTask(description, dueTime){
     let hours_new = hours > 12 ? (hours - 12) : hours;
     let time_new = hours_new + ":" + min + ":" + second_new + " " + when;
     due.textContent = date_new + " " + time_new;
+    }
+    
+    
     // console.log(dueTime);
     // create task item
     const newtask = document.createElement("li");
